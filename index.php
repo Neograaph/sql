@@ -42,10 +42,14 @@ VALUES  (10, 'Joe', 'Ingénieur', '1993/10/01', 4000, 3000, 3),
         (50, 'Paul', 'Commercial', '1993/10/01', 3000, 2000, 1)
 ";
 
+$request6 = "UPDATE departement
+SET Directeur = '30'
+WHERE nom = 'Commercial';
+";
 try {
   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
 
-  $dbh->exec($request5)
+  $dbh->exec($request6)
   or die(print_r($dbh->errorInfo(), true));
 
   $dbh = null;
