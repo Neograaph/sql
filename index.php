@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+
+
+
 <?php
 $host = "localhost";
 $root = "root";
@@ -46,16 +62,111 @@ $request6 = "UPDATE departement
 SET Directeur = '30'
 WHERE nom = 'Commercial';
 ";
+
+echo "<div>Exo 1 : Liste des départements</div>";
+$request7 = "SELECT nom FROM departement
+";
+
 try {
   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
 
-  $dbh->exec($request6)
-  or die(print_r($dbh->errorInfo(), true));
-
+  foreach($dbh->query($request7) as $row)
+  {
+   echo $row[0] . "</br>";
+  }
+  // or die(print_r($dbh->errorInfo(), true));
+  
   $dbh = null;
 }
 catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
 
+echo "<div>Exo 2 : Liste des employés</div>";
+$request8 = "SELECT nom FROM employe
+";
+
+try {
+  $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+
+  foreach($dbh->query($request8) as $row)
+  {
+   echo $row[0] . "</br>";
+  }
+  // or die(print_r($dbh->errorInfo(), true));
+  
+  $dbh = null;
+}
+catch (PDOException $e) {
+  die("DB ERROR: " . $e->getMessage());
+}
+
+echo "<div>Exo 3 : Liste des employés</div>";
+echo "<div>Par ordre de salaire décroissant</div>";
+
+$request9 = "SELECT nom, salaire FROM employe
+ORDER BY salaire DESC
+";
+
+try {
+  $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+
+  foreach($dbh->query($request9) as $row)
+  {
+   echo $row[0] . " - " .$row[1] . " €" ."</br>";
+  }
+  // or die(print_r($dbh->errorInfo(), true));
+  
+  $dbh = null;
+}
+catch (PDOException $e) {
+  die("DB ERROR: " . $e->getMessage());
+}
+
+echo "<div>Exo 4 : Liste des employés</div>";
+echo "<div>Par salaire inférieur à 5000</div>";
+
+$request9 = "SELECT nom, salaire FROM employe
+WHERE salaire<5000
+";
+
+try {
+  $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+
+  foreach($dbh->query($request9) as $row)
+  {
+   echo $row[0] . " - " .$row[1] . " €" ."</br>";
+  }
+  // or die(print_r($dbh->errorInfo(), true));
+  
+  $dbh = null;
+}
+catch (PDOException $e) {
+  die("DB ERROR: " . $e->getMessage());
+}
+
+echo "<div>Exo 5 : Liste des employés</div>";
+echo "<div>Par numéro et la commission des employés triés par profession</div>";
+
+$request9 = "SELECT nom, salaire FROM employe
+WHERE salaire<5000
+";
+
+try {
+  $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+
+  foreach($dbh->query($request9) as $row)
+  {
+   echo $row[0] . " - " .$row[1] . " €" ."</br>";
+  }
+  // or die(print_r($dbh->errorInfo(), true));
+  
+  $dbh = null;
+}
+catch (PDOException $e) {
+  die("DB ERROR: " . $e->getMessage());
+}
 ?>
+
+</body>
+</html>
