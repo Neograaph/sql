@@ -1,13 +1,4 @@
-<!-- DATABASE_URL="mysql://root:wxc@127.0.0.1:3306/maxime-gauthier.com?serverVersion=mariadb-10.4.11" -->
 <?php
-// $user = "root";
-// $pass = "wxc";
-
-// $dbh = new PDO('mysql:host=localhost;dbname=sqltest', $user, $pass);
-// $sql = ("CREATE DATABASE sqltest");
-// $dbh->query($sql);
-
-
 $host = "localhost";
 $root = "root";
 $root_password = "wxc";
