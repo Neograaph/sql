@@ -206,18 +206,73 @@ VALUES (60, 'Lise', 'Commercial', '2008/11/06', 4500, 3250, 1),
 
 $request13 = "UPDATE Departement SET Directeur = 11 WHERE Nom = 'Commercial'
 ";
-$request14 = "UPDATE Employe SET Salaire = 4700 WHERE Nom = 'Lise'
+$request14 = "UPDATE Employe SET Salaire = 100 WHERE Nom = 'Lise'
 ";
 $request15 = "UPDATE Departement SET Directeur = 9 WHERE Nom = 'Développement''
 ";
-$request16 = "UPDATE Employe SET Salaire = 4700 WHERE Nom = 'Arthur'
+$request16 = "UPDATE Employe SET Salaire = 100 WHERE Nom = 'Arthur'
+";
+
+// try {
+//   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+  
+//   $dbh->exec($request13)
+
+//   or die(print_r($dbh->errorInfo(), true));
+  
+//   $dbh = null;
+// }
+// catch (PDOException $e) {
+//   die("DB ERROR: " . $e->getMessage());
+// }
+
+// try {
+//   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+  
+//   $dbh->exec($request14)
+
+//   or die(print_r($dbh->errorInfo(), true));
+  
+//   $dbh = null;
+// }
+// catch (PDOException $e) {
+//   die("DB ERROR: " . $e->getMessage());
+// }
+
+// try {
+//   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+  
+//   $dbh->exec($request15)
+
+//   or die(print_r($dbh->errorInfo(), true));
+  
+//   $dbh = null;
+// }
+// catch (PDOException $e) {
+//   die("DB ERROR: " . $e->getMessage());
+// }
+
+// try {
+//   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+  
+//   $dbh->exec($request16)
+
+//   or die(print_r($dbh->errorInfo(), true));
+  
+//   $dbh = null;
+// }
+// catch (PDOException $e) {
+//   die("DB ERROR: " . $e->getMessage());
+// }
+
+$request17 = "
+
 ";
 
 try {
   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
-  
-  $dbh->exec($request13)
 
+  $dbh->query($request17)
   or die(print_r($dbh->errorInfo(), true));
   
   $dbh = null;
@@ -226,7 +281,7 @@ catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
 
-?>
 
+?>
 </body>
 </html>
