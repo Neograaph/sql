@@ -204,7 +204,13 @@ VALUES (60, 'Lise', 'Commercial', '2008/11/06', 4500, 3250, 1),
 (110, 'Jane', 'Technicien', '2008/05/12', 4000, NULL, 2)
 ";
 
-$request13 = "
+$request13 = "UPDATE Departement SET Directeur = 11 WHERE Nom = 'Commercial'
+";
+$request14 = "UPDATE Employe SET Salaire = 4700 WHERE Nom = 'Lise'
+";
+$request15 = "UPDATE Departement SET Directeur = 9 WHERE Nom = 'Développement''
+";
+$request16 = "UPDATE Employe SET Salaire = 4700 WHERE Nom = 'Arthur'
 ";
 
 try {
@@ -219,10 +225,6 @@ try {
 catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
-
-
-
-
 
 ?>
 

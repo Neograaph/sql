@@ -6,7 +6,5 @@
 }
 body{
   background: url(/bg.jpg);
-}
-.title {
-  
+  background-size: cover;
 }
