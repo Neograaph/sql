@@ -5,23 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <title>SQL</title>
 </head>
 <body>
   
-
-
-
-
-
 <?php
-$host = "localhost";
-$root = "root";
-$root_password = "wxc";
-
-$user = 'newuser';
-$pass = 'newpass';
-$db = "sqldb";
+include 'env.php';
 
 $request1 = "CREATE TABLE if not exists employe (
   numero int primary key,
@@ -82,6 +71,9 @@ catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
 
+echo "<br/>";
+echo "<br/>";
+
 echo "<div>Exo 2 : Liste des employés</div>";
 $request8 = "SELECT nom FROM employe
 ";
@@ -100,6 +92,9 @@ try {
 catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
+
+echo "<br/>";
+echo "<br/>";
 
 echo "<div>Exo 3 : Liste des employés</div>";
 echo "<div>Par ordre de salaire décroissant</div>";
@@ -123,6 +118,9 @@ catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
 
+echo "<br/>";
+echo "<br/>";
+
 echo "<div>Exo 4 : Liste des employés</div>";
 echo "<div>Par salaire inférieur à 5000</div>";
 
@@ -145,6 +143,9 @@ catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
 
+echo "<br/>";
+echo "<br/>";
+
 echo "<div>Exo 5 : Liste des employés</div>";
 echo "<div>Par numéro et la commission des employés triés par profession</div>";
 
@@ -166,6 +167,63 @@ try {
 catch (PDOException $e) {
   die("DB ERROR: " . $e->getMessage());
 }
+
+echo "<br/>";
+echo "<br/>";
+
+$request10 = "INSERT INTO departement (numero, nom, ville)
+VALUES  (4, 'Retraité', 'Miami')
+";
+
+$request11 = "UPDATE employe
+SET departement = 4
+WHERE DateEmbauche < '1982/01/01';
+";
+
+// change les employés en retraité
+// try {
+//   $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+  
+//   $dbh->exec($request11)
+
+//   or die(print_r($dbh->errorInfo(), true));
+  
+//   $dbh = null;
+// }
+// catch (PDOException $e) {
+//   die("DB ERROR: " . $e->getMessage());
+// }
+
+// ajouter des nouvelles valeurs
+$request12 = "INSERT INTO employe (numero, nom, profession, DateEmbauche, salaire, commission, departement)
+VALUES (60, 'Lise', 'Commercial', '2008/11/06', 4500, 3250, 1),
+(70, 'Jenny', 'Ingénieur', '2017/03/27', 6000, 5000, 2),
+(80, 'Arthur', 'Pilote', '2015/04/17', 4500, 4500, 3),
+(90, 'Bill', 'Pilote', '2008/05/12', 3500, NULL, 2),
+(100, 'William', 'Vendeur', '2008/05/12', 3500, 2000, 1),
+(110, 'Jane', 'Technicien', '2008/05/12', 4000, NULL, 2)
+";
+
+$request13 = "
+";
+
+try {
+  $dbh = new PDO("mysql:host=".$host.";dbname=".$db, $root, $root_password);
+  
+  $dbh->exec($request13)
+
+  or die(print_r($dbh->errorInfo(), true));
+  
+  $dbh = null;
+}
+catch (PDOException $e) {
+  die("DB ERROR: " . $e->getMessage());
+}
+
+
+
+
+
 ?>
 
 </body>
